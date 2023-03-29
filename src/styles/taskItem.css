@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+p {
+    text-indent: 15px;
+    justify-content: center;
+    font-size: 18px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.taskItem {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    position: relative;
+    border: 2px solid gray;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.4); 
+}
+
+.leftPart {
+    display: flex;
+    flex-direction: column;
+}
+
+.rightPart {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    opacity: 0.5;
+    border: 0;
+    margin: 5px 20px;
+    padding: 10px 15px;
+}
+
+button:hover {
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.completed {
+    background-color: rgba(109, 254, 140, 0.5);
+}
+
+.edit {
+    background-color: rgba(254, 254, 111, 0.5);
+}
+
+.delete {
+    background-color: rgba(254, 111, 111, 0.5);
+}
+
+@media (max-width: 1000px) {
+    .taskItem {
+        flex-direction: column;
+    }
+    .rightPart {
+        flex-direction: row;
+    }
+    .leftPart {
+        margin: 0 auto;
+    }
+    .leftPart h2 {
+        text-align: center;
+    }
+}

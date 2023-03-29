@@ -1,0 +1,14 @@
+.addItem__btn {
+    display: block;
+    background: none;
+    font-size: 20px;
+    font-weight: 300;
+    border: 1px solid black;
+    border-radius: 100%;
+    align-self: center;
+    margin: 0 auto 25px;
+}
+
+.addItem__btn:hover {
+    background-color: rgba(254, 254, 111, 0.5);
+}
