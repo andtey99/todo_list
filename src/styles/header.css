@@ -3,9 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
-    /* background-color: #fffdf4; */
     background-color: #FFFFFF;
 }
 .header {
@@ -16,8 +14,7 @@ body {
     margin-bottom: 25px;
     border-bottom: 1px solid gray;
 }
-
-.header span {
+.headerSpan {
     font-size: 35px;
     font-weight: 500;
     font-family: "Roboto", sans-serif;

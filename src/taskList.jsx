@@ -5,13 +5,15 @@ import "./styles/taskList.css"
 const TaskList = ({
     tasks,
     onDelete,
-    onChange,
-    onComplete
+    onEdit,
+    onComplete,
+    completedTasks
 }) => {
+
 
     return (
         <div className="taskList">
-            {tasks.length === 0 ? <span>Задач не запланировано</span> : tasks.map( (item, index) => <TaskItem number={index} info={item} key={index} onDelete={onDelete} onChange={onChange} onComplete={onComplete}/>)}
+            {tasks.length === 0 ? <div><span>Задач не запланировано</span><img src="../assets/111.png" alt="Грустный будильник"/> </div> : tasks.map( (item, index) => <TaskItem number={index} info={item} key={index} onDelete={onDelete} onEdit={onEdit} onComplete={onComplete}/>)}
         </div>
     );
 }

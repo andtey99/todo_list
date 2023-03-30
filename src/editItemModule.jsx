@@ -1,17 +1,15 @@
 import React, {useState} from "react";
 import "./styles/module.css"
 
-const AddItemModule = ({ addNewTask, btnStatus, activationStatus, children }) => {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
+const EditItemModule = ({ item, addNewTask, btnStatus, activationStatus, children }) => {
+    const [title, setTitle] = useState(item.title);
+    const [description, setDescription] = useState(item.description);
 
     function newTask(e) {
         e.preventDefault();
         if (title.length < 5) alert("Название задачи должно содержать не менее 5 символов");
         else {
-            addNewTask({title, description});
-            setTitle('');
-            setDescription('');
+            addNewTask({id: item.id, title, description});
             activationStatus(false);
         }
     }
@@ -23,11 +21,11 @@ const AddItemModule = ({ addNewTask, btnStatus, activationStatus, children }) =>
                 <form action="">
                     <input type="text" placeholder="Название задачи" value={title} onChange={e => setTitle(e.target.value)}/>
                     <textarea placeholder="Детали задачи" value={description} onChange={e => setDescription(e.target.value)} />
-                    <button className="addBtn" onClick={newTask}>Добавить</button>
+                    <button className="addBtn" onClick={newTask}>Изменить</button>
                 </form>
             </div>
         </div>
     )
 }
 
-export default AddItemModule;
+export default EditItemModule;

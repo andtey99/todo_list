@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "./header"
 import TaskList from "./taskList";
 import AddItemModule from "./addItemModule";
+import CompletedTaskList from "./completedTaskList";
 import "./styles/addItem_btn.css"
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
         }
     ]);
     const [btnStatus, setBtnStatus] = useState(false);
+    const [completedTasks, setCompletedTasks] = useState([]);
     
     function addNewTask(newTask) {
         setTasks([...tasks, {id: tasks.length, ...newTask}])
@@ -31,19 +33,27 @@ const App = () => {
         let tasksMod = tasks.filter( item => item.id !== id);
         setTasks(tasksMod);
     }
-    function handleChange(id) {
-
+    function handleChange(item) {
+        let tmpTasks = [...tasks];
+        for (let i = 0; i < tasks.length; i++) {
+            if (tmpTasks[i].id === item.id) tmpTasks[i] = Object.assign({}, item);
+        }
+        setTasks(tmpTasks);
     }
     function handleComplete(id) {
-
+        let completedArray = tasks.filter( item => item.id === id);
+        let tasksMod = tasks.filter( item => item.id !== id);
+        setTasks(tasksMod);
+        setCompletedTasks([...completedTasks, ...completedArray]);
     }
 
     return (
         <>
             <Header />
             <button className="addItem__btn" title="Добавить задачу" onClick={() => setBtnStatus(true)}>+</button>
-            <AddItemModule addNewTask={addNewTask} btnStatus={btnStatus} activationStatus={setBtnStatus}/>
-            <TaskList tasks={tasks} onDelete={handleDelete} onChange={handleChange} onComplete={handleComplete}/>
+            <AddItemModule addNewTask={addNewTask} btnStatus={btnStatus} activationStatus={setBtnStatus}>Новая задача? Это хорошо!</AddItemModule>
+            <TaskList tasks={tasks} onDelete={handleDelete} onEdit={handleChange} onComplete={handleComplete} completedTasks={completedTasks.length}/>
+            <CompletedTaskList completedTasks={completedTasks} />
         </>
     )
 }

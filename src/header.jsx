@@ -5,7 +5,7 @@ const Header = () => {
 
     return (
         <header className="header">
-            <span>Task Manager</span>
+            <div className="headerSpan">Task Manager</div>
         </header>
     )
 }
