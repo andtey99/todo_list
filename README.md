@@ -1,3 +1,7 @@
+#You can test the app from the link below
+
+https://andtey99.github.io/todo_list/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
